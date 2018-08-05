@@ -1,0 +1,11 @@
+<%=  extra_stylesheet %>
+
+<div class="login">
+  <%= form_tag(session_path, method: 'post') do %>
+    <%= password_field_tag(:passcode, nil , id: 'passcode') %>
+    <div id="submit">
+      <img src="source/lock.png">
+    </div>
+  <% end %>
+  <div id="flash"></div>
+</div>

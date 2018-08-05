@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>HTML5 Zipper</title>
+		<meta charset="utf-8">
+		<meta name="description" content="This is my really, really, REALLY exciting Zipper animation">
+
+		<script src="js/jquery-1.9.0.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/page.css">
+
+		<script type="text/javascript">
+
+			// zipper default settings
+			var backcolor = 'blue';
+			var backImage = '';
+			var lineColor = '#333333';   // default
+			var toothFill = '#d1d3d4';  // default
+			var pullFill = '#FFFFFF'; // default
+			var CursorFill = '#999999';  // default
+			var endingsFill = '#FFFFFF'; // default
+			var autoOpen = false;
+			var autoOpenSpeed = 100; // from 1 to 1000
+			var noAnimation = false;
+			var fadeOutAnimation = true;
+			var moveOutAnimation = false;
+			var fadeOutDelay = 1700; // milliseconds
+			//var zipperHeight = 1000;
+
+			$(function() {
+				// INITIALIZATION ROUTINE
+				if (backImage != '') {
+					var backObj = new Image();
+					backObj.src = backImage;
+					backObj.onload = function() {
+						init();
+						fillPattern = ctx.createPattern(backObj, "repeat");
+					}
+				} else {
+					init();
+				}
+		});
+
+		</script>
+
+		<script type="text/javascript" src="js/general.js"></script>
+		<script type="text/javascript" src="js/timer.js"></script>
+		<script type="text/javascript" src="js/zipper.js"></script>
+
+
+	</head>
+	<body>
+	<!-- SITE -->
+
+	<div class="site-div">
+		<div class="header">
+			<div class="header-band">
+			</div>
+		</div>
+		<div class="banner">
+			<div class="banner-title"><h1>Welcome</h1><br/><h2>This is a page</h2></div>
+		</div>
+		<div class="footer"></div>
+	</div>
+
+	<!-- END SITE -->
+
+	<!-- ZIPPER -->
+	<div id="containerZipper">
+		<canvas id="canvasback"></canvas>
+		<canvas id="canvas"></canvas>
+		<canvas id="overlapcanvas"></canvas>
+	</div>
+	<!-- END ZIPPER -->
+
+
+	<!-- PALETTE -->
+
+	<div id="palette-div" class="palette-div">
+		<div class="block"></div>
+		<ul class="palette">
+			<li class="placeholder">Background</li>
+			<li class="red" onclick="changeColor('#ff0000', '');">
+			</li><li class="yellow" onclick="changeColor('#ffff00', '');">
+			</li><li class="orange" onclick="changeColor('#ff9900', '');">
+			</li><li class="green" onclick="changeColor('#006600', '');">
+			</li><li class="blue" onclick="changeColor('#0000ff', '');">
+			</li><li class="white" onclick="changeColor('#ffffff', '');">
+			</li><li class="lightgray" onclick="changeColor('#cccccc', '');">
+			</li><li class="gray" onclick="changeColor('#999999', '');">
+			</li><li class="middlegray" onclick="changeColor('#666666', '');">
+			</li><li class="darkgray" onclick="changeColor('#333333', '');">
+			</li><li class="black" onclick="changeColor('#000000', '');">
+			</li><li class="texture1" onclick="changeColor('', 'img/green_texture.jpg');">
+			</li><li class="texture2" onclick="changeColor('', 'img/labyrinth_texture.jpg');">
+			</li><li class="texture3" onclick="changeColor('', 'img/circle_texture.jpg');">
+			</li><li class="texture4" onclick="changeColor('', 'img/storyboard.jpg');">
+			</li>
+
+			<li class="placeholder">Lines</li>
+			<li class="red" onclick="changeZipper('lineColor', '#ff0000');">
+			</li><li class="yellow" onclick="changeZipper('lineColor', '#ffff00');">
+			</li><li class="orange" onclick="changeZipper('lineColor', '#ff9900');">
+			</li><li class="green" onclick="changeZipper('lineColor', '#006600');">
+			</li><li class="blue" onclick="changeZipper('lineColor', '#0000ff');">
+			</li><li class="white" onclick="changeZipper('lineColor', '#ffffff');">
+			</li><li class="lightgray" onclick="changeZipper('lineColor', '#cccccc');">
+			</li><li class="gray" onclick="changeZipper('lineColor', '#999999');">
+			</li><li class="middlegray" onclick="changeZipper('lineColor', '#666666');">
+			</li><li class="darkgray" onclick="changeZipper('lineColor', '#333333');">
+			</li><li class="black" onclick="changeZipper('lineColor', '#000000');">
+			</li>
+			<li class="placeholder">Tooths</li>
+			<li class="red" onclick="changeZipper('toothFill', '#ff0000');">
+			</li><li class="yellow" onclick="changeZipper('toothFill', '#ffff00');">
+			</li><li class="orange" onclick="changeZipper('toothFill', '#ff9900');">
+			</li><li class="green" onclick="changeZipper('toothFill', '#006600');">
+			</li><li class="blue" onclick="changeZipper('toothFill', '#0000ff');">
+			</li><li class="white" onclick="changeZipper('toothFill', '#ffffff');">
+			</li><li class="lightgray" onclick="changeZipper('toothFill', '#cccccc');">
+			</li><li class="gray" onclick="changeZipper('toothFill', '#999999');">
+			</li><li class="middlegray" onclick="changeZipper('toothFill', '#666666');">
+			</li><li class="darkgray" onclick="changeZipper('toothFill', '#333333');">
+			</li><li class="black" onclick="changeZipper('toothFill', '#000000');">
+			</li>
+			<li class="placeholder">Cursor</li>
+			<li class="red" onclick="changeZipper('CursorFill', '#ff0000');">
+			</li><li class="yellow" onclick="changeZipper('CursorFill', '#ffff00');">
+			</li><li class="orange" onclick="changeZipper('CursorFill', '#ff9900');">
+			</li><li class="green" onclick="changeZipper('CursorFill', '#006600');">
+			</li><li class="blue" onclick="changeZipper('CursorFill', '#0000ff');">
+			</li><li class="white" onclick="changeZipper('CursorFill', '#ffffff');">
+			</li><li class="lightgray" onclick="changeZipper('CursorFill', '#cccccc');">
+			</li><li class="gray" onclick="changeZipper('CursorFill', '#999999');">
+			</li><li class="middlegray" onclick="changeZipper('CursorFill', '#666666');">
+			</li><li class="darkgray" onclick="changeZipper('CursorFill', '#333333');">
+			</li><li class="black" onclick="changeZipper('CursorFill', '#000000');">
+			</li>
+
+			<li class="placeholder">Pull</li>
+
+			<li class="red" onclick="changeZipper('pullFill', '#ff0000');">
+			</li><li class="yellow" onclick="changeZipper('pullFill', '#ffff00');">
+			</li><li class="orange" onclick="changeZipper('pullFill', '#ff9900');">
+			</li><li class="green" onclick="changeZipper('pullFill', '#006600');">
+			</li><li class="blue" onclick="changeZipper('pullFill', '#0000ff');">
+			</li><li class="white" onclick="changeZipper('pullFill', '#ffffff');">
+			</li><li class="lightgray" onclick="changeZipper('pullFill', '#cccccc');">
+			</li><li class="gray" onclick="changeZipper('pullFill', '#999999');">
+			</li><li class="middlegray" onclick="changeZipper('pullFill', '#666666');">
+			</li><li class="darkgray" onclick="changeZipper('pullFill', '#333333');">
+			</li><li class="black" onclick="changeZipper('pullFill', '#000000');">
+			</li>
+
+			<li class="placeholder">Endings</li>
+
+			<li class="red" onclick="changeZipper('endingsFill', '#ff0000');">
+			</li><li class="yellow" onclick="changeZipper('endingsFill', '#ffff00');">
+			</li><li class="orange" onclick="changeZipper('endingsFill', '#ff9900');">
+			</li><li class="green" onclick="changeZipper('endingsFill', '#006600');">
+			</li><li class="blue" onclick="changeZipper('endingsFill', '#0000ff');">
+			</li><li class="white" onclick="changeZipper('endingsFill', '#ffffff');">
+			</li><li class="lightgray" onclick="changeZipper('endingsFill', '#cccccc');">
+			</li><li class="gray" onclick="changeZipper('endingsFill', '#999999');">
+			</li><li class="middlegray" onclick="changeZipper('endingsFill', '#666666');">
+			</li><li class="darkgray" onclick="changeZipper('endingsFill', '#333333');">
+			</li><li class="black" onclick="changeZipper('endingsFill', '#000000');">
+			</li>
+
+			<li class="placeholder">
+				Fade Out: <input type="radio" name="ani" id="fadeout" value="fadeout" checked onchange="changeAnimation('fadeout');" />
+				Move Out: <input type="radio" name="ani" id="moveout" value="moveout" onchange="changeAnimation('moveout');" />
+				No Animation: <input type="radio" name="ani" id="noani" value="noani" onchange="changeAnimation('noani');" /><br/>
+				Auto Open: <input type="checkbox" name="auto" id="autoOpen" value="autoOpen" onchange="autoOpen = true; autoOpenInterval = setInterval('autoOpenDraw()', 1000 / autoOpenSpeed);" />
+			</li>
+
+			<a id="closePalette" onclick="document.getElementById('palette-div').style.display = 'none'; return false;" href="#"><img src="img/close-icon.png" /></a>
+		</ul>
+
+
+	</div>
+	<a id="reloadPage" onclick="location.reload();" href="#"><img src="img/reload.png" /></a>
+	<!-- END PALETTE -->
+
+	</body>
+
+</html>

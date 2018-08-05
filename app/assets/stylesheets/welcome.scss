@@ -1,3 +1,45 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    form {
+        #passcode {
+            font-size: 30px;
+            width: 20vw;
+            height: 50px;
+            &:active {
+                color: red;
+            }
+        }
+        #submit {
+            float: right;
+            margin-left: 10px;
+            border: 1px solid lightgray;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            &:active {
+                background-color: lavenderblush;
+            }
+            img {
+                position: relative;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+    #flash {
+        font-size: 20px;
+        color: red;
+    }
+}

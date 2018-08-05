@@ -1,11 +1,11 @@
 class AuthenticatedController < ApplicationController
 
-before_action :authenticate
+  before_action :authenticate
 
-def authenticate
-  unless cookies[:authentication] == Settings.authentication
-    redirect_to root_path
+  def authenticate
+    unless cookies.signed[:passcode] == Rails.application.credentials[Rails.env.to_sym][:passcode]
+      redirect_to root_path
+    end
   end
-end
 
 end
