@@ -15,7 +15,7 @@
 html, body {
     height:100%;
 }
-body { background-color: #ccc; padding:0; margin:0; overflow: hidden; }
+body { padding:0; margin:0; overflow: hidden; }
 input[type=radio] { background: white; color: yellow; -webkit-appearance: none; width: 10px; height: 10px; }
 input[type=radio]:checked { background: black; }
 

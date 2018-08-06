@@ -1,5 +1,10 @@
 $(document).ready(function () {
   if($("html").data('controller') != "welcome") { return }
+  $(function () {
+    $('form').bind("keypress", function (e) {
+      if (e.keyCode == 13) return false;
+    });
+  });
   $("#submit").click(function(){
     var formData = $("form").serializeArray();
     var sendData = {};

@@ -4,13 +4,12 @@
     <title>HuuuuuugeProject</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag 'application', media: 'all'%>
+    <%= yield(:birthday_stylesheet) %>
     <%= javascript_include_tag 'application'%>
-    <%= yield(:extra_stylesheet) %>
-    <%= yield(:extra_javascript) %>
+    <%= yield(:birthday_javascript) %>
   </head>
 
-  <body>
+  <body style="background-color:rgb(238, 156, 167);">
     <%= yield %>
   </body>
 </html>

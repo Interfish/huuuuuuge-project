@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   resource :session, only: [:create, :destroy]
   get :birthday, to: 'birthday#index'
+  get :cake, to: 'birthday#cake'
 end

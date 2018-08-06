@@ -1,0 +1,24 @@
+<%= content_for :birthday_javascript do %>
+  <%= raw '<script type="text/javascript" src="/source/js/general.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/zipper.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/zip_conf.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/cute_text.js"></script>' %>
+<% end %>
+
+<%= content_for :birthday_stylesheet do %>
+  <%= raw '<link rel="stylesheet" type="text/css" href="/source/css/page.css">' %>
+<% end %>
+
+<!-- ZIPPER -->
+<div id="containerZipper">
+	<canvas id="canvasback"></canvas>
+	<canvas id="canvas"></canvas>
+	<canvas id="overlapcanvas"></canvas>
+</div>
+<!-- END ZIPPER -->
+
+<div class="cute-text">
+  <p class="normal">
+    <span class="cute"></span>
+  </p>
+</div>
