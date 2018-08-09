@@ -36,3 +36,4 @@ yarn-debug.log*
 .yarn-integrity
 .babelrc
 .postcssrc.yml
+.DS_Store
