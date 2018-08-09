@@ -4,4 +4,8 @@ class PhotosController < AuthenticatedController
 
   def index
   end
+
+  def create
+    
+  end
 end

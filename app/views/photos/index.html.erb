@@ -1,0 +1,4 @@
+<%= form_tag(photos_path, action: :post, multipart: true) do %>
+  <%= file_field_tag('upload', accept: 'image/*')%>
+  <%= submit_tag('Upload Avatar') %>
+<% end %>
