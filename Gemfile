@@ -64,3 +64,6 @@ gem 'bootstrap', '~> 4.1.3'
 
 # jQuery
 gem 'jquery-rails'
+
+# font-awesome
+gem "font-awesome-rails"

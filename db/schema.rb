@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2018_08_09_144735) do
   end
 
   create_table "photos", force: :cascade do |t|
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
