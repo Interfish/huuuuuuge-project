@@ -1023,7 +1023,9 @@ function myMove(e){
 			} else {
 			   // end of cursor reached
 				 animateZipper();
-				 $('#containerZipper').trigger("zipper:end");
+				 setTimeout(function(){
+					$('#containerZipper').trigger("zipper:end");
+				 }, 2000);
 			}
 		}
 		oldy = newy;

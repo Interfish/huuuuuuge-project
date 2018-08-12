@@ -1,10 +1,10 @@
 // zipper default settings
-var backcolor = 'blue';
+var backcolor = '#ffbec7';
 var backImage = '';
-var lineColor = '#333333';   // default
-var toothFill = '#d1d3d4';  // default
-var pullFill = '#FFFFFF'; // default
-var CursorFill = '#999999';  // default
+var lineColor = '#cccccc';   // default
+var toothFill = '#cccccc';  // default
+var pullFill = '#ffffff'; // default
+var CursorFill = '#cccccc';  // default
 var endingsFill = '#FFFFFF'; // default
 var autoOpen = false;
 var autoOpenSpeed = 100; // from 1 to 1000

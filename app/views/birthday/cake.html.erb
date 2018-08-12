@@ -160,7 +160,25 @@
 </svg>
 <div class="text">
   <h1>happy birthday!</h1>
-  <p>Poly</p>
+  <p>QJJ</p>
+  <button>Open Your Gift</button>
 </div>
-<div style="text-align:center;clear:both">
-</div>
+<style>
+  button {
+    display: none;
+    margin-top: 20px;
+    width: 120px;
+    height: 50px;
+    border-radius: 10px;
+  }
+</style>
+<script>
+  $(document).ready(function () {
+    $("button").on("click", function(){
+      window.location.href = '/photos';
+    })
+    setTimeout(function(){
+      $("button").show(600);
+    }, 12000)
+  })
+</script>
