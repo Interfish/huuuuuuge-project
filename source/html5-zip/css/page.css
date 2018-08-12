@@ -1,0 +1,60 @@
+/*
+ * Developer : Claudio Ferraro (claudioferraro@mail.ru)
+ * Date : 26/03/2013
+ * All code (c)2013 Sunbyte inc. all rights reserved
+ */
+
+/* CANVAS */
+#containerZipper { width:100%; height: 100%; }
+#canvasback { position: absolute;  z-index: 998; }
+#canvas { position: absolute; z-index: 999; }
+#overlapcanvas { position: absolute; z-index: 1000; }
+
+
+/* SITE */
+html, body {
+    height:100%;
+}
+body { padding:0; margin:0; overflow: hidden; }
+input[type=radio] { background: white; color: yellow; -webkit-appearance: none; width: 10px; height: 10px; }
+input[type=radio]:checked { background: black; }
+
+h1 { font-family: helvetica; font-size: 90px; color: white; text-shadow: 4px 4px 6px #000; margin:0; }
+h2 { font-family: helvetica; font-size: 44px; color: white; text-shadow: 2px 2px 3px #000; margin:0; }
+h3 { font-family: helvetica; font-size: 20px; color: white; margin:0; text-transform: uppercase; }
+h4 { font-family: verdana; font-size: 14px; color: darkgray; margin:0; padding-left: 10px; }
+h4.first { padding-left: 0px !important; }
+.site-div { position: absolute; z-index: 1; width:100%; }
+.header { position: relative; height: 105px; background-color: #ccc; }
+.header-band { overflow: hidden; position: absolute; width:100%; bottom: 5px; height: 51px;  background: url('../img/01.png'); }
+
+.banner { text-align: center; position: relative; height: 500px; width: 100%; background: url('../img/background.jpg'); background-position: center center; }
+.banner-title { position: relative; top: 20px; }
+.bannerback { height: 100%; z-index: -1 }
+
+.footer { height: 50px; background-color: #ccc;}
+
+/* PALETTE */
+.palette-div { text-align: center; padding: 0; margin: 0; position: absolute; bottom: 20px; right: 20px; width: 420px; height: 470px; border: 2px solid black; z-index: 1100; }
+.palette { padding: 13px; margin: 0; list-style: none; position: absolute; }
+.palette li { margin: 1px; margin-bottom: 1px; width: 30px; height: 30px; display: inline-block; cursor: pointer; border: 1px solid black; }
+.block  { background: #333; filter:alpha(opacity=60); /* IE */ -moz-opacity:0.6; /* Mozilla */ opacity: 0.6; /* CSS3 */ position: absolute; top: 0; left: 0; height: 100%; width:100%; }
+.red { background-color: #ff0000; }
+.blue { background-color: #0000ff; }
+.green { background-color: #006600; }
+.gray { background-color: gray; }
+.yellow { background-color: #ffff00; }
+.white { background-color: #ffffff; }
+.lightgray { background-color: #cccccc; }
+.gray { background-color: #999999; }
+.middlegray { background-color: #666666; }
+.darkgray { background-color: #333333; }
+.black { background-color: #000000; }
+.orange { background-color: #ff9900; }
+.texture1 { background: url('../img/tex1.jpg'); }
+.texture2 { background: url('../img/tex2.jpg'); }
+.texture3 { background: url('../img/tex3.jpg'); }
+.placeholder { clear: both; width: 100% !important; height: 12px !important; border:0 !important; text-align: left; color: white; font-family: verdana; font-size: 11px;}
+#autoOpen { margin-top: 10px; }
+#closePalette { position: absolute; right: 5px; margin-bottom: 3px; }
+#reloadPage { position: absolute; right: 26px; bottom: 25px; z-index: 1099; }

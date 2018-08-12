@@ -1,0 +1,30 @@
+<%= content_for :birthday_javascript do %>
+  <%= raw '<script type="text/javascript" src="/source/js/general.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/zipper.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/zip_conf.js"></script>' %>
+  <%= raw '<script type="text/javascript" src="/source/js/cute_text.js"></script>' %>
+<% end %>
+
+<%= content_for :birthday_stylesheet do %>
+  <%= raw '<link rel="stylesheet" type="text/css" href="/source/css/page.css">' %>
+  <%= raw '<link rel="stylesheet" type="text/css" href="/source/css/cute.css">' %>
+<% end %>
+
+<!-- ZIPPER -->
+<div id="containerZipper">
+	<canvas id="canvasback"></canvas>
+	<canvas id="canvas"></canvas>
+	<canvas id="overlapcanvas"></canvas>
+</div>
+<!-- END ZIPPER -->
+
+<div class="cute-text">
+  <span class="normal"></span>
+  <span class="cute"></span>
+</div>
+
+<script>
+  $(document).ready(function () {
+    changeColor("", "/source/img/giftbox.jpeg");
+  })
+</script>
