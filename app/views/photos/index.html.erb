@@ -1,4 +1,38 @@
+<div class="img-shown">
+  <div class="img-container">
+  </div>
+  <div class="comment-container">
+    <%= form_tag('/', id: 'form-update-comment') do %>
+      <textarea class="form-control" rows="3" name="comment" placeholder="Say some Love..."></textarea>
+      <button type="button" class="btn btn-primary btn-sm" onclick="updateComment()">Add</button>
+    <% end %>
+  </div>
+</div>
+<div class="img-mask" onclick="hidePhoto(event)"></div>
 <%= form_tag(photos_path, action: :post, id: 'form-upload', multipart: true) do %>
   <input id="input-upload", name="image", type="file", accept="image/*" />
-  <button id="button-upload"name="button" type="button" class="btn btn-primary btn-lg"><strong>Upload&nbsp;&nbsp;&nbsp;</strong><i class="fa fa-upload"></i></button>
+  <button id="button-upload" name="button" type="button" class="btn btn-primary btn-lg"><strong>Upload&nbsp;&nbsp;&nbsp;</strong><i class="fa fa-upload"></i></button>
 <% end %>
+<hr>
+<div class="gallery">
+  <div class="photos-column">
+    <% (0..@photos.count - 1).step(4).to_a.each do |i| %>
+      <%= image_tag(@photos[i].image.variant(resize: "500X500"), data: {photo: @photos[i].id}, onclick: "showPhoto(event)")%>
+    <% end %>
+  </div>
+  <div class="photos-column">
+    <% (1..@photos.count - 1).step(4).to_a.each do |i| %>
+      <%= image_tag(@photos[i].image.variant(resize: "500X500"), data: {photo: @photos[i].id}, onclick: "showPhoto(event)")%>
+    <% end %>
+  </div>
+  <div class="photos-column">
+    <% (2..@photos.count - 1).step(4).to_a.each do |i| %>
+      <%= image_tag(@photos[i].image.variant(resize: "500X500"), data: {photo: @photos[i].id}, onclick: "showPhoto(event)")%>
+    <% end %>
+  </div>
+  <div class="photos-column">
+    <% (3..@photos.count - 1).step(4).to_a.each do |i| %>
+      <%= image_tag(@photos[i].image.variant(resize: "500X500"), data: {photo: @photos[i].id}, onclick: "showPhoto(event)")%>
+    <% end %>
+  </div>
+</div>

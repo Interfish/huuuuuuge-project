@@ -1,5 +1,75 @@
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+}
+
+
+.photos-column {
+    flex: 25%;
+    max-width: 25%;
+    padding: 0 4px;
+    img {
+        background: white;
+        padding: 5px 5px 5px 5px;
+        margin: 10px 5px 0px 5px;
+        vertical-align: middle;
+        max-width: 100%;
+    }
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+    .photos-column {
+        flex: 50%;
+        max-width: 50%;
+    }
+}
+
 #form-upload {
+    display: flex;
+    margin-top: 20px;
+    justify-content: flex-end;
     input {
         display: none;
     }
+}
+
+.img-shown {
+    z-index: 999;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    .img-container {
+        margin: 10px 10px 0px 10px;
+        img {
+            display: block;
+            margin: auto;
+            max-width: 70vw;
+            max-height: 60vh;
+        }
+    }
+    .comment-container {
+        min-width: 20vw;
+        min-height: 15vh;
+        margin: 50px 10px 20px 10px;
+        button {
+            margin-top: 10px;
+            float: right;
+        }
+    }
+}
+.img-mask {
+    z-index: 998;
+    position: fixed;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

@@ -67,3 +67,6 @@ gem 'jquery-rails'
 
 # font-awesome
 gem "font-awesome-rails"
+
+# image-processing
+gem 'image_processing', '~> 1.2'

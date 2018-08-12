@@ -4,6 +4,5 @@ Rails.application.routes.draw do
   resource :session, only: [:create, :destroy]
   get :birthday, to: 'birthday#index'
   get :cake, to: 'birthday#cake'
-  resources :photos do
-  end
+  resources :photos
 end
