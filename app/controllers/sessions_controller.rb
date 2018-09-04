@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
   def create
     if params.require('passcode') == Rails.application.credentials[Rails.env.to_sym][:passcode]
-      cookies.signed[:passcode] = {
+      cookies.encrypted[:passcode] = {
         value: Rails.application.credentials[Rails.env.to_sym][:passcode],
         expires: 1.day.from_now,
         httponly: true
