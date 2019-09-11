@@ -38,3 +38,4 @@ yarn-debug.log*
 .postcssrc.yml
 .DS_Store
 server.sh
+.vscode
