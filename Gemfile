@@ -69,4 +69,4 @@ gem 'jquery-rails'
 gem "font-awesome-rails"
 
 # image-processing
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
